@@ -1,9 +1,8 @@
-// Fetch random fact from API
 async function fetchFact() {
     const apis = [
-        "https://uselessfacts.jsph.pl/random.json?language=en", // Random trivia
-        "https://v2.jokeapi.dev/joke/Any?type=single", // Random joke
-        "https://numbersapi.p.rapidapi.com/random/trivia?json=true", // Number fact
+        "https://uselessfacts.jsph.pl/random.json?language=en", 
+        "https://v2.jokeapi.dev/joke/Any?type=single", 
+        "https://numbersapi.p.rapidapi.com/random/trivia?json=true", 
     ];
 
     const randomApi = apis[Math.floor(Math.random() * apis.length)];
@@ -18,9 +17,9 @@ async function fetchFact() {
         const data = await response.json();
         let fact = "";
 
-        if (data.text) fact = data.text; // Trivia API
-        else if (data.joke) fact = data.joke; // Joke API
-        else if (data.number) fact = `Did you know? ${data.text}`; // Numbers API
+        if (data.text) fact = data.text; 
+        else if (data.joke) fact = data.joke; 
+        else if (data.number) fact = `Did you know? ${data.text}`;
 
         document.getElementById("fact").innerText = fact;
     } catch (error) {
